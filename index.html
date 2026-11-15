@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>OMM Web</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="top">
+      <div class="top-row" id="top-row"></div>
+      <div class="status-row" id="status-row"></div>
+    </header>
+    <main class="content" id="content"></main>
+    <div class="host-bar" id="host-bar" hidden></div>
+  </div>
+  <div id="overlay" class="overlay" hidden></div>
+
+  <!-- Plain scripts, no modules, so the page also works when opened straight from disk -->
+  <script src="js/hidpp.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/actions.js"></script>
+  <script src="js/device.js"></script>
+  <script src="js/mock.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

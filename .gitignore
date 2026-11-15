@@ -1,0 +1,21 @@
+# Original reference material, never commit
+bin/
+decompiled/
+screenshots/
+img/
+*.exe
+*.dll
+*.i64
+*.idb
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+
+# Local tooling
+.claude/
+.vscode/
+.idea/
+*.log
+.env*
