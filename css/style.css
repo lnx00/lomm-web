@@ -128,7 +128,9 @@ button:disabled { cursor: default; }
 /* Content */
 .content { flex: 1; overflow-y: auto; scrollbar-color: #9f9fa0 transparent; scrollbar-width: thin; }
 .profile { display: flex; flex-wrap: wrap; align-items: flex-start; padding: 20px 20px 40px 0; }
-.col-left { width: 440px; padding-left: 75px; flex: none; }
+.col-left { min-width: 440px; padding-left: 75px; flex: none; }
+/* Lift off distance makes the DPI rows wider, tighten the gutter so assignments stay beside them */
+.col-left:has(.dpi-row .lod) { padding-left: 32px; }
 .col-right { flex: 1; min-width: 420px; padding-left: 17px; }
 .panel { margin-bottom: 28px; }
 h2 { margin: 0 0 12px; padding-left: 10px; font-size: 20px; font-weight: 500; }
@@ -140,7 +142,7 @@ h2 { margin: 0 0 12px; padding-left: 10px; font-size: 20px; font-weight: 500; }
 .dpi-head { display: flex; align-items: center; gap: 22px; padding-left: 12px; margin-bottom: 14px; }
 .dpi-head .combo { width: 120px; }
 .dpi-cols { display: flex; gap: 0; }
-.dpi-cols span { display: inline-block; }
+.dpi-cols span { display: inline-block; white-space: nowrap; }
 .dpi-row { display: flex; align-items: center; height: 51px; margin: 0 0 6px 19px; padding-right: 8px; border-radius: 8px; width: max-content; min-width: 270px; }
 .dpi-row.current { background: var(--surface); }
 .dpi-num { width: 56px; text-align: center; font-size: 14px; }
