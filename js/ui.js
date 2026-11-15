@@ -894,5 +894,10 @@
     }
   });
 
+  // Block the browser context menu, but keep it in text fields for copy/paste
+  document.addEventListener('contextmenu', (e) => {
+    if (!e.target.closest('input, textarea, [contenteditable]')) e.preventDefault();
+  });
+
   start();
 })(globalThis.OMM = globalThis.OMM || {});
