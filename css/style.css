@@ -128,8 +128,8 @@ button:disabled { cursor: default; }
 /* Content */
 .content { flex: 1; overflow-y: auto; scrollbar-color: #9f9fa0 transparent; scrollbar-width: thin; }
 .profile { display: flex; flex-wrap: wrap; align-items: flex-start; padding: 20px 20px 40px 0; }
-.col-left { width: 380px; padding-left: 75px; flex: none; }
-.col-right { flex: 1; min-width: 420px; padding-left: 77px; }
+.col-left { width: 440px; padding-left: 75px; flex: none; }
+.col-right { flex: 1; min-width: 420px; padding-left: 17px; }
 .panel { margin-bottom: 28px; }
 h2 { margin: 0 0 12px; padding-left: 10px; font-size: 20px; font-weight: 500; }
 .col-right h2 { padding-left: 0; }
@@ -168,7 +168,7 @@ h2 { margin: 0 0 12px; padding-left: 10px; font-size: 20px; font-weight: 500; }
 .assign-row.hit .num { color: var(--primary); }
 .assign-actions { display: flex; flex-wrap: wrap; gap: 26px; margin: 18px 0 0 17px; }
 .recording { color: var(--error); }
-.rate .combo { width: 318px; margin-left: 0; }
+.rate .combo { width: 318px; flex: none; }
 .rate-row { display: flex; align-items: center; gap: 12px; }
 .tip { display: inline-flex; color: var(--on-surface-medium); }
 .tip svg { width: 20px; height: 20px; }
