@@ -24,28 +24,28 @@
   let pendingRender = false;
   let rendering = false;
 
-  const svg = (body, extra) => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ' + (extra || '') + '>' + body + '</svg>';
+  // Lucide icon names (https://lucide.dev/icons) with optional attribute overrides
   const ICONS = {
-    logo: svg('<rect x="6" y="2.5" width="12" height="19" rx="6"/><path d="M12 2.5v7M6 9.5h12"/>'),
-    chevron: svg('<path d="M5 9l7 7 7-7"/>', 'class="chev" stroke-width="3"'),
-    gear: svg('<circle cx="12" cy="12" r="3.2"/><path d="M12 2.8l1.6 2.6 3-.6.9 2.9 2.9.9-.6 3 2.6 1.6-2.6 1.6.6 3-2.9.9-.9 2.9-3-.6L12 23.6l-1.6-2.6-3 .6-.9-2.9-2.9-.9.6-3L1.6 13.2l2.6-1.6-.6-3 2.9-.9.9-2.9 3 .6z" transform="translate(1.2 1.1) scale(.9)"/>'),
-    battery: svg('<rect x="7" y="5" width="10" height="16" rx="2" fill="currentColor" stroke="none"/><rect x="10" y="2.5" width="4" height="3" rx="1" fill="currentColor" stroke="none"/>'),
-    charging: svg('<rect x="7" y="5" width="10" height="16" rx="2"/><rect x="10" y="2.5" width="4" height="2.5" rx="1" fill="currentColor" stroke="none"/><path d="M13 8l-3 5h4l-3 5" stroke-width="1.6"/>'),
-    wireless: svg('<path d="M2.5 9.5a14 14 0 0 1 19 0M5.5 13a9.5 9.5 0 0 1 13 0M8.5 16.3a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/>'),
-    usb: svg('<path d="M12 21V4M12 4l-2.5 3M12 4l2.5 3M12 16l-5-3v-3M12 13l5-2.5V8"/><circle cx="7" cy="8.5" r="1.5"/><rect x="15.5" y="5" width="3" height="3"/><circle cx="12" cy="21" r="1.2" fill="currentColor"/>'),
-    restore: svg('<path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4.5v4.5h4.5"/>'),
-    info: svg('<circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".6" fill="currentColor"/>'),
-    warning: svg('<path d="M12 3.5L2.5 20h19z"/><path d="M12 10v5"/><circle cx="12" cy="17.6" r=".5" fill="currentColor"/>'),
-    eye: svg('<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>'),
-    eyeOff: svg('<path d="M4 4l16 16M9.9 5.3A9.6 9.6 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3 3.8M6.3 6.8A16.600 16.600 0 0 0 2 12s3.600 7 10 7a9.500 9.500 0 0 0 4-.9"/>'),
-    dots: svg('<circle cx="12" cy="5" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.7" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.7" fill="currentColor" stroke="none"/>'),
-    diamond: svg('<path d="M12 3.5L20.5 12 12 20.500 3.500 12z" fill="#fff" stroke="none"/>'),
-    shift: svg('<circle cx="12" cy="12" r="2.2"/><path d="M12 2.500l2.500 3h-5zM12 21.500l2.500-3h-5zM2.500 12l3-2.500v5zM21.500 12l-3-2.500v5z" fill="currentColor" stroke="none"/>', 'style="color:#ff6600"'),
-    link: svg('<path d="M10 14a4 4 0 0 0 5.700 0l3-3a4 4 0 0 0-5.700-5.700l-1 1M14 10a4 4 0 0 0-5.700 0l-3 3a4 4 0 0 0 5.700 5.700l1-1"/>'),
-    unlink: svg('<path d="M14 6.300l1-1a4 4 0 0 1 5.700 5.700l-1 1M10 17.700l-1 1A4 4 0 0 1 3.300 13l1-1M8 3v2.500M3 8h2.500M16 21v-2.500M21 16h-2.500"/>'),
-    spinner: svg('<path d="M12 3a9 9 0 1 0 9 9"/>', 'class="big spin"'),
-    question: svg('<circle cx="12" cy="12" r="9"/><path d="M9.500 9.500a2.500 2.500 0 1 1 3.500 2.300c-.700.400-1 .900-1 1.700"/><circle cx="12" cy="17" r=".600" fill="currentColor"/>', 'class="big"'),
-    gshift: svg('<path d="M19 12h-7M19 12a7 7 0 1 1-2.050-4.950" stroke-width="2.600"/>'),
+    logo: ['Mouse'],
+    chevron: ['ChevronDown', { class: 'chev', 'stroke-width': 3 }],
+    gear: ['Settings'],
+    battery: ['BatteryFull'],
+    charging: ['BatteryCharging'],
+    wireless: ['Wifi'],
+    usb: ['Usb'],
+    restore: ['RotateCcw'],
+    info: ['Info'],
+    warning: ['TriangleAlert'],
+    eye: ['Eye'],
+    eyeOff: ['EyeOff'],
+    dots: ['EllipsisVertical'],
+    diamond: ['Diamond', { fill: '#fff', stroke: 'none' }],
+    shift: ['Move', { style: 'color:#ff6600' }],
+    link: ['Link'],
+    unlink: ['Unlink'],
+    spinner: ['LoaderCircle', { class: 'big spin' }],
+    question: ['CircleQuestionMark', { class: 'big' }],
+    gshift: ['ArrowBigUp'],
   };
 
   function h(tag, props, ...kids) {
@@ -64,8 +64,16 @@
     return el;
   }
 
+  // Returns null if Lucide failed to load, so the UI still renders without icons
   function icon(name) {
-    return h('span', { html: ICONS[name] }).firstChild;
+    const lib = window.lucide;
+    const [id, attrs] = ICONS[name];
+    if (!lib || !lib.icons[id]) return null;
+    const el = lib.createElement(lib.icons[id], attrs);
+    // Size comes from the stylesheet
+    el.removeAttribute('width');
+    el.removeAttribute('height');
+    return el;
   }
 
   const $ = (id) => document.getElementById(id);
@@ -353,7 +361,7 @@
     const locked = state.busy;
     const loading = state.devices.some((d) => d.status === 'loading' || d.status === 'probing') || state.busy;
 
-    const logo = h('span', { class: 'logo' + (loading ? ' spin' : ''), html: ICONS.logo, title: 'OMM Web' });
+    const logo = h('span', { class: 'logo' + (loading ? ' spin' : ''), title: 'OMM Web' }, icon('logo'));
 
     const deviceItems = state.devices.map((d) => ({ value: d, label: d.label }));
     if (deviceItems.length) deviceItems.push({ separator: true });
@@ -378,12 +386,11 @@
       const profileItems = m.profiles.map((pr) => {
         const eye = multi ? h('span', {
           class: 'eye', role: 'button', tabindex: '0', title: pr.enabled ? 'Disable profile' : 'Enable profile',
-          html: ICONS[pr.enabled ? 'eye' : 'eyeOff'],
           onclick: (e) => {
             e.stopPropagation();
             run(() => m.toggleEnabled(pr));
           },
-        }) : null;
+        }, icon(pr.enabled ? 'eye' : 'eyeOff')) : null;
         return { value: pr, label: pr.title + (pr.dirty ? ' *' : ''), dim: !pr.enabled, extra: eye };
       });
       const profileCombo = combo({
@@ -409,7 +416,7 @@
         h('button', { class: 'btn btn-primary', type: 'button', disabled: locked || !dirty.length, onclick: save },
           dirty.length > 1 ? 'Save ' + dirty.length + ' Profiles' : 'Save'));
     }
-    row.push(h('button', { class: 'icon-btn', type: 'button', title: 'Settings', 'aria-label': 'Settings', html: ICONS.gear, onclick: settings }));
+    row.push(h('button', { class: 'icon-btn', type: 'button', title: 'Settings', 'aria-label': 'Settings', onclick: settings }, icon('gear')));
     $('top-row').replaceChildren(...row);
 
     const status = [];
@@ -418,7 +425,7 @@
       status.push(h('span', { class: 'battery' },
         b ? h('span', { title: 'Battery is at ' + b.percent + '%, ' + (b.charging ? 'charging' : 'discharging') + '.' }, b.percent + '%') : null,
         b ? icon(b.charging ? 'charging' : 'battery') : null,
-        h('span', { class: 'dim', title: m.wired ? 'USB' : 'Wireless receiver', html: ICONS[m.wired ? 'usb' : 'wireless'] })));
+        h('span', { class: 'dim', title: m.wired ? 'USB' : 'Wireless receiver' }, icon(m.wired ? 'usb' : 'wireless'))));
       if (m.info.profileCountOob > 0) {
         status.push(h('button', { class: 'btn btn-tertiary', type: 'button', disabled: locked, onclick: restore }, icon('restore'), 'Restore Defaults'));
       }
@@ -570,8 +577,8 @@
       const row = h('div', { class: 'dpi-row' + (current ? ' current' : '') + (r.enabled ? '' : ' off') },
         h('span', { class: 'dpi-num' }, String(r.order + 1)),
         h('span', { class: 'dpi-icons' },
-          r.enabled && r.isDefault ? h('span', { title: 'Default DPI for profile. Use the menu to change.', html: ICONS.diamond }) : null,
-          r.enabled && r.isShift ? h('span', { title: 'DPI Shift assignment. Use the menu to change.', html: ICONS.shift }) : null),
+          r.enabled && r.isDefault ? h('span', { title: 'Default DPI for profile. Use the menu to change.' }, icon('diamond')) : null,
+          r.enabled && r.isShift ? h('span', { title: 'DPI Shift assignment. Use the menu to change.' }, icon('shift')) : null),
         dpiInput(r.value, {
           aria: 'DPI ' + (r.order + 1), disabled: !r.enabled,
           nearest: (n) => device.nearestDpi(m.dpiRanges, n),
@@ -581,12 +588,12 @@
         row.append(
           h('button', {
             class: 'icon-btn dpi-link' + (r.linked ? ' on' : ''), type: 'button', disabled: !r.enabled,
-            title: r.linked ? 'Unlink axes' : 'Link axes', 'aria-pressed': String(r.linked), html: ICONS[r.linked ? 'link' : 'unlink'],
+            title: r.linked ? 'Unlink axes' : 'Link axes', 'aria-pressed': String(r.linked),
             onclick: () => {
               p.setLinked(r, !r.linked);
               render(true);
             },
-          }),
+          }, icon(r.linked ? 'link' : 'unlink')),
           dpiInput(r.yValue, {
             aria: 'DPI y ' + (r.order + 1), disabled: !r.enabled || r.linked,
             nearest: (n) => device.nearestDpi(m.dpiRangesY || m.dpiRanges, n),
@@ -646,9 +653,9 @@
               render(true);
             }),
             limited ? h('span', {
-              class: 'tip', html: ICONS.info,
+              class: 'tip',
               title: 'Your mouse is currently connected to a receiver that limits its wireless report rate.',
-            }) : null)));
+            }, icon('info')) : null)));
       };
       add('Wired', 'wired', () => d.reportRateWired, (v) => { d.reportRateWired = v; }, false);
       add('Wireless', 'wireless', () => d.reportRateWireless, (v) => { d.reportRateWireless = v; }, m.wirelessRateLimited);
@@ -780,7 +787,7 @@
         state.gshift = !gshift;
         render(true);
       },
-    }, icon('gshift'), 'Shift'));
+    }, icon('gshift'), 'G Shift'));
 
     return h('section', { class: 'panel' }, h('h2', null, 'Assignments'),
       h('div', { class: 'assign-head sub' }, h('span', null, 'Button'), h('span', null, 'Assignment')),

@@ -7,6 +7,11 @@ browser and click "Connect Device". The scripts are plain files, not modules, so
 the page works straight from disk. Any static file host works too, as long as it
 serves over HTTPS, since WebHID requires a secure context.
 
+Icons come from [Lucide](https://lucide.dev/icons), loaded from jsDelivr in
+`index.html` with a pinned version and an integrity hash. To change an icon,
+edit the `ICONS` map in `js/ui.js`. If the CDN can't be reached, the page
+still works without icons.
+
 ## Demo mode
 
 `index.html?demo` runs against a simulated mouse, no hardware needed.
