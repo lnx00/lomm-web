@@ -29,17 +29,22 @@
       this.onreport = null;
       this.hasShort = false;
       this.hasLong = false;
+      let reportInfo = false;
       const scan = (collections) => {
         for (const c of collections || []) {
           for (const r of c.outputReports || []) {
+            reportInfo = true;
             if (r.reportId === REPORT_SHORT) this.hasShort = true;
             if (r.reportId === REPORT_LONG) this.hasLong = true;
           }
+          if (c.inputReports && c.inputReports.length) reportInfo = true;
           scan(c.children);
         }
       };
       scan(hid.collections);
-      if (!this.hasShort && !this.hasLong) this.hasLong = true;
+      // Only guess when the browser gave us no report descriptors at all. A receiver also
+      // exposes interfaces without HID++ reports (e.g. DJ 0x20/0x21), those must be skipped.
+      if (!reportInfo) this.hasLong = true;
       this._handler = (e) => {
         if (this.onreport) {
           this.onreport(e.reportId, new Uint8Array(e.data.buffer, e.data.byteOffset, e.data.byteLength));
