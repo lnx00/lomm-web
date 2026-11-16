@@ -1,5 +1,8 @@
 # OMM Web
 
+> [!NOTE]
+> This project is vibecoded and I do not take no responsibility for anything it does.
+
 Configure the onboard memory of Logitech G mice from the browser, using WebHID.
 An unofficial web take on Logitech's Onboard Memory Manager, written for the
 PRO X SUPERLIGHT 2. Not affiliated with or endorsed by Logitech.
@@ -7,7 +10,7 @@ PRO X SUPERLIGHT 2. Not affiliated with or endorsed by Logitech.
 <h2 align="center"><a href="https://lnx00.github.io/lomm-web/">Open OMM Web</a></h2>
 
 <p align="center">
-  No hardware at hand? Try the <a href="https://lnx00.github.io/lomm-web/?demo">demo with a simulated mouse</a>.
+  <img src=".github/img/preview.png" alt="App preview" height="512px">
 </p>
 
 ## Requirements
